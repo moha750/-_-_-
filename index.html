@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل في ورشة عمل الفوتوشوب</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img class="logo" src="img/back.jpg" alt="background" data-aos="fade-up" data-aos-duration="3000">
+    </header>
+
+    <main>
+        <h1 class="title" data-aos="fade-up" data-aos-duration="1500">التقديم في مصنع طابوق البراهيم</h1>
+
+        <form  name="google-sheet" data-aos="fade-up" data-aos-duration="1500">
+            <center>
+                <div data-aos="fade-up" data-aos-duration="1500">
+                    <div data-aos="fade-up" data-aos-duration="3000">
+        <label  for="الأسم الثلاثي">:الأسم الثلاثي</label> <br>
+        </div>
+        <input class="text" type="text" placeholder="أكتب أسمك هنا" name="الأسم الثلاثي" required > <br>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="1500">
+            <div data-aos="fade-up" data-aos-duration="3000">
+        <label  for="الهوية الوطنية">:الهوية الوطنية</label> <br>
+        </div>
+        <input class="text" type="number" placeholder="أكتب رقم الهوية الوطنية هنا" name="الهوية الوطنية" required> <br>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="1500">
+            <div data-aos="fade-up" data-aos-duration="3000">
+        <label  for="رقم التواصل">:رقم التواصل</label> <br>
+        </div>
+        <input class="text" type="number" placeholder="أكتب رقم التواصل هنا" name="رقم التواصل" required> <br>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="1500">
+            <div data-aos="fade-up" data-aos-duration="3000">
+        <label  for="المؤهل الدراسي">:المؤهل الدراسي</label> <br>
+        </div>
+        <input class="text" type="text" placeholder="أكتب المؤهل الدراسي هنا" name="المؤهل الدراسي" required> <br>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="1500">
+            <div data-aos="fade-up" data-aos-duration="3000">
+        <label  for="التخصص">:التخصص</label> <br>
+        </div>
+        <input class="text" type="text" placeholder="أكتب التخصص هنا" name="التخصص" required> <br>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="1500">
+            <div data-aos="fade-up" data-aos-duration="3000">
+        <label  for="الرغبة الوظيفية">:الرغبة الوظيفية</label> <br>
+        </div>
+        <input class="text" type="text" placeholder="أكتب الرغبة الوظيفية هنا" name="الرغبة الوظيفية"> <br>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="1500">
+            <div data-aos="fade-up" data-aos-duration="3000">
+        <label  for="مدينة السكن">: مدينة السكن</label> <br>
+        </div>
+        <input class="text" type="text" placeholder="أكتب مدينة السكن هنا" name="مدينة السكن" required> <br>
+        </div>
+        <button data-aos="fade-up" data-aos-duration="1500">تسجيل</button>
+        
+    </center>
+        </form>
+    </main>
+
+    <footer>
+        <p>تصميم وبرمجة/ محمد إسماعيل المطر</p>
+        <p>جميع الحقوق محفوظة لمصنع طابوق البراهيم</p>
+    </footer>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbywrP45pnxN0WGr3tYhCe7OaXphIFlSAuXv3F4MRnjdZaQYd1_pERZNBbo0jqxqHXn4xg/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+
+          Swal.fire({
+  title: '!تم التقديم',
+  text: "في حال قبولك سيتم التواصل معك بأقرب وقت ممكن",
+  icon: 'success',
+  confirmButtonColor: '#e32524',
+  confirmButtonText: 'تم'
+})
+        })
+
+        AOS.init();
+
+      </script>
+</body>
+</html>
